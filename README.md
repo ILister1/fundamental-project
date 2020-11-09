@@ -1,6 +1,8 @@
 #QA Fundamental Project
+
 **Gig Listings App** _By Isaac Lister_
-##Contents
+## Contents
+
 
 * I Don't
  * understand
