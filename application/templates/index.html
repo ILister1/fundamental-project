@@ -1,0 +1,12 @@
+<!-- declare the header and list of Bands -->
+
+<h1> Gig Listings App </h1>
+
+<b> List of Bands </b>
+
+{% for band in all_bands %}
+
+{{ band.band_name }}<br>
+{{ band.genre }} <br> <br>
+
+{% endfor %}
