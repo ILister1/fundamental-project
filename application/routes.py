@@ -25,7 +25,7 @@ def add():
 
 # declare simple routes for update and delete
 # in update, we simply update the band with id 1 to new name
-@app.route('/update/<band_name>')
+@app.route('/update/<band_name>',methods=['POST'])
 def update(band_name):
     latest_band = Bands.query.order_by(Bands.id.desc()).first()
     latest_band.band_name = band_name
@@ -34,7 +34,7 @@ def update(band_name):
 
 # and the same to delete the first one (MVP deliverable)
 
-@app.route('/delete')
+@app.route('/delete',methods=['POST'])
 def delete():
     latest_band = Bands.query.order_by(Bands.id.desc()).first()
     db.session.delete(latest_band)
