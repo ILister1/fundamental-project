@@ -18,8 +18,8 @@ def add():
     if form.validate_on_submit():
         gig = Bands(
                 band_name = form.band_name.data,
-                genre = 'Jazz',
-                venue_id = 1
+                genre = form.genre.data,
+                venue_id = form.venue_id.data
                 )
         db.session.add(gig)
         db.session.commit()
@@ -37,10 +37,14 @@ def update(id):
     band = Bands.query.get(id)
     if form.validate_on_submit():
         band.band_name = form.band_name.data
+        band.genre = form.genre.data
+        band.venue_id = form.venue_id.data
         db.session.commit()
         return redirect(url_for('index'))
     elif request.method == 'GET':
         form.band_name.data = band.band_name
+        form.genre.data = band.genre
+        form.venue_id.data = band.venue_id
     return render_template('update.html', title='Update Gig', form=form)
 
 # and the same to delete the first one (MVP deliverable)

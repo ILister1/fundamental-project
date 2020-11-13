@@ -2,11 +2,18 @@
 {% block body_content %}
     <form action='' method='POST'>
 	{{ form.hidden_tag() }}
-	{{ form.band_name }} <br>
+	{{ form.band_name.label }} {{ form.band_name }} <br>
+	{{ form.genre.label }} {{ form.genre }}
+	{{ form.venue_id.label }} {{ form.venue_id }}
 	{% if form.band_name.errors %}
 		{% for error in form.band_name.errors %}
 		{{ error }} <br>
 	   {% endfor %}
+	{% endif %}
+	{% if form.genre.errors %}
+	{% for error in form.genre.errors %}
+	{{ error }} <br>
+	{% endfor %}
 	{% endif %}
 	{{ form.submit }}
 </form>
