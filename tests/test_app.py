@@ -7,7 +7,7 @@ from os import getenv
 # import the app's classes and objects
 from app import app
 from application import db
-from application.models import Bands
+from application.models import Bands, Venues
 
 # create the base class for the test app
 class TestBase(TestCase):
@@ -25,7 +25,7 @@ class TestBase(TestCase):
         db.create_all()
 
         # create test band
-        test_band = Bands(band_name='The Testers',genre='Test Genre')
+        test_band = Bands(band_name='The Testers',genre='Test Genre', venue_id =1)
         
         # save band to db
         db.session.add(test_band)
@@ -46,9 +46,17 @@ class TestViews(TestBase):
         self.assertEqual(response.status_code, 200)
 
     def test_update_get(self):
-        response = self.client.get(url_for('update'))
+        response = self.client.get(url_for('update/test'))
         self.assertEqual(response.status_code,405)
 
     def test_delete_get(self):
         response = self.client.get(url_for('delete'))
         self.assertEqual(response.status_code,405)
+
+class TestAdd(TestBase):
+    def test_add_post(self):
+        response = self.client.post(
+                url_for('index')
+                data = dict(band_name = 'TestBand2', genre='Classical', venue_id = 1)
+                )
+        self.assertIn(b'TestBand2',response.data)

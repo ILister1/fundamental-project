@@ -1,12 +1,29 @@
 <!-- declare the header and list of Bands -->
 
-<h1> Gig Listings App </h1>
+{% extends 'layout.html' %}
+{% block body_content %}
 
-<b> List of Bands </b>
+<div>
 
 {% for band in all_bands %}
 
-{{ band.band_name }}<br>
-{{ band.genre }} <br> <br>
+<b> Band Name: </b>{{ band.band_name }}<br>
+<b> Genre: </b>{{ band.genre }} <br>
+<b> Performing at: </b> {{ band.venue.venue_name }}<br>
+<b> Location: </b> {{ band.venue.venue_loc }}<br>
+<b> Starting at: </b>{{ band.venue.start_time }}<br>
+<b> Entry fee: </b>{{ band.venue.entry_fee }}<br>
+<br><br>
+<form action='{{ url_for('update', id=band.id) }}'>
+	<input type=submit value="Update">
+</form>
+<form action='{{ url_for('delete', id=band.id) }}'>
+	<input type=submit value="Delete">
+</form>
+<br>
+
+
 
 {% endfor %}
+
+{% endblock body_content %}

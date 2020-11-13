@@ -1,43 +1,54 @@
 # import the necessary information
 
 from application import app, db
-from application.models import Bands
-from flask import render_template
+from application.models import Bands, Venues
+from flask import render_template, url_for, redirect, request
+from application.forms import GigForm
 
 # declare first route for index; to display all_bands
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
     all_bands = Bands.query.all()
-    return render_template('index.html', all_bands=all_bands)
+    return render_template('index.html', title="Gig Listings App", all_bands=all_bands)
 
-@app.route('/add')
+@app.route('/add', methods=['POST', 'GET'])
 def add():
-    latest_band = Bands.query.order_by(Bands.id.desc()).first()
-    if latest_band:
-        new_band = Bands(band_name="New Band"+str(latest_band.id + 1),genre ='Alternative')
-    else:
-        new_band = Bands(band_name="New Band1", genre ='Disco')
-    db.session.add(new_band)
-    db.session.commit()
-    return "Added a new band"
+    form = GigForm()
+    if form.validate_on_submit():
+        gig = Bands(
+                band_name = form.band_name.data,
+                genre = 'Jazz',
+                venue_id = 1
+                )
+        db.session.add(gig)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('add.html', title='Add a new gig', form=form)
+
 
 
 # declare simple routes for update and delete
 # in update, we simply update the band with id 1 to new name
-@app.route('/update/<band_name>',methods=['POST'])
-def update(band_name):
-    latest_band = Bands.query.order_by(Bands.id.desc()).first()
-    latest_band.band_name = band_name
-    db.session.commit()
-    return "Updated the first band name"
+# in v1.0.2, update is performed with forms
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    form = GigForm()
+    band = Bands.query.get(id)
+    if form.validate_on_submit():
+        band.band_name = form.band_name.data
+        db.session.commit()
+        return redirect(url_for('index'))
+    elif request.method == 'GET':
+        form.band_name.data = band.band_name
+    return render_template('update.html', title='Update Gig', form=form)
 
 # and the same to delete the first one (MVP deliverable)
 
-@app.route('/delete',methods=['POST'])
-def delete():
-    latest_band = Bands.query.order_by(Bands.id.desc()).first()
-    db.session.delete(latest_band)
+@app.route('/delete/<int:id>')
+def delete(id):
+    band = Bands.query.get(id)
+    db.session.delete(band)
     db.session.commit()
-    return "Deleted most recently added band"
+    return redirect(url_for('index'))
 
