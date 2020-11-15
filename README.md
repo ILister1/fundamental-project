@@ -12,24 +12,24 @@ Risk Assessment: https://docs.google.com/spreadsheets/d/15WIGvHh8FQEDUEicGsjjrn0
 ## Contents
 
 * Brief
-     * [Building the Minimum Viable Product] (#building-the-minimum-viable-product)
-     * [Further Definition] (#further-definition)
-* [Architecture] (#architecture)
-    * [Models and Routes] (#models-and-routes)
-    * [Initial Relationship Schema] (#initial-relationship-schema)
-    * [Final Relationship Schema] (#final-relationship-schema)
-* [Risk Assessment] (#risk-assessment)
+    * [Building the Minimum Viable Product](#building-the-minimum-viable-product)
+    * [Further Definition](#further-definition)
+* [Architecture](#architecture)
+    * [Models and Routes](#models-and-routes)
+    * [Initial Relationship Schema](#initial-relationship-schema)
+    * [Final Relationship Schema](#final-relationship-schema)
+* [Risk Assessment](#risk-assessment)
 * Design
-    * [Back End] (#back-end)
-    * [Front End] (#front-end)
-* [Known Issues] (#known-issues)
-* [Future Improvements] (#future-improvements)
-* [Errata Analysis] (#errata-analysis)
+    * [Back End](#back-end)
+    * [Front End](#front-end)
+* [Known Issues](#known-issues)
+* [Future Improvements](#future-improvements)
+* [Errata Analysis](#errata-analysis)
 * Testing
-    * [Unit Testing] (#unit-testing)
-    * [Integration Testing] (#integration-testing)
-* [Branching] (#branching)
-* [Versioning] (#versioning)
+    * [Unit Testing](#unit-testing)
+    * [Integration Testing](#integration-testing)
+* [Branching](#branching)
+* [Versioning](#versioning)
 
 ## Brief
 ### Building the Minimum Viable Product (MVP)
