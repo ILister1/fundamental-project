@@ -60,7 +60,7 @@ class TestViews(TestBase):
 class TestAdd(TestBase):
     def test_add_band(self):
         response = self.client.post(
-                url_for('index'),
+                url_for('add'),
                 data = dict(name='TestBand2', genre='Classical', venue_id=1)
                 )
         self.assertIn(b'TestBand2',response.data)

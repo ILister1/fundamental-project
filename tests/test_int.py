@@ -47,7 +47,7 @@ class TestBase(LiveServerTestCase):
 class TestBand1(TestBase):
     def test_band1(self):
         # Click add band link
-        self.driver.find_element_by_xpath("<xpath for Register button in nav bar>").click()
+        self.driver.find_element_by_xpath("/html/body/a[2]").click()
         time.sleep(1)
 
         # Fill in form
@@ -55,6 +55,9 @@ class TestBand1(TestBase):
         self.driver.find_element_by_xpath('//*[@id="genre"]').send_keys(
             test_genre)
         time.sleep(1)
+
+# click update gig link
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click()
 
         # Assert that browser redirects to index page
         assert url_for('index') in self.driver.current_url
