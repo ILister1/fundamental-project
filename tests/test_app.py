@@ -46,17 +46,32 @@ class TestViews(TestBase):
         self.assertEqual(response.status_code, 200)
 
     def test_update_get(self):
-        response = self.client.get(url_for('update/test'))
-        self.assertEqual(response.status_code,405)
+        response = self.client.get(url_for('update', id=1))
+        self.assertEqual(response.status_code,200)
 
     def test_delete_get(self):
-        response = self.client.get(url_for('delete'))
+        response = self.client.get(url_for('delete', id=1))
         self.assertEqual(response.status_code,405)
 
+    def test_add_get(self):
+        response = self.client.get(url_for('add'))
+        self.assertEqual(response.status_code, 200)
+
 class TestAdd(TestBase):
-    def test_add_post(self):
+    def test_add_band(self):
         response = self.client.post(
-                url_for('index')
-                data = dict(band_name = 'TestBand2', genre='Classical', venue_id = 1)
+                url_for('index'),
+                data = dict(name='TestBand2', genre='Classical', venue_id=1)
                 )
         self.assertIn(b'TestBand2',response.data)
+        self.assertIn(b'Classical',response.data)
+
+class TestUpdate(TestBase):
+    def test_update_gig(self):
+        response = self.client.post(
+                url_for('update', id=1),
+                data = dict(oldname='TestBand2',newname='TestChange'),
+                follow_redirects=True
+                )
+        self.assertEqual(response.status_code,200)
+
