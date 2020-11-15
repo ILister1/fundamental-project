@@ -12,8 +12,8 @@ Risk Assessment: https://docs.google.com/spreadsheets/d/15WIGvHh8FQEDUEicGsjjrn0
 ## Contents
 
 * Brief
-   * [Building the Minimum Viable Product] (#building-the-minimum-viable-product)
-   * [Further Definition] (#further-definition)
+     * [Building the Minimum Viable Product] (#building-the-minimum-viable-product)
+     * [Further Definition] (#further-definition)
 * [Architecture] (#architecture)
     * [Models and Routes] (#models-and-routes)
     * [Initial Relationship Schema] (#initial-relationship-schema)
@@ -188,7 +188,8 @@ v1.0.3- App runs through Jenkins with a Gunicorn command, has SelectField functi
 
 V1.0.4- unit testing completed, HTML coverage report generated. 82% coverage. Integration testing completed, but unsure how to evidence this in report.
 
-
+## Authors
+Isaac Lister
 
 
 
