@@ -20,6 +20,7 @@ Risk Assessment: https://docs.google.com/spreadsheets/d/15WIGvHh8FQEDUEicGsjjrn0
     * [Final Relationship Schema](#final-relationship-schema)
 * [Risk Assessment](#risk-assessment)
 * Design
+    * [CI Pipeline] (#ci-pipeline)
     * [Back End](#back-end)
     * [Front End](#front-end)
 * [Known Issues](#known-issues)
@@ -92,6 +93,12 @@ The full assessment can be found at: https://docs.google.com/spreadsheets/d/15WI
 ![risk][risk]
 
 ## Design
+
+### CI Pipeline
+
+Here is the CI Pipeline specific to this project.
+
+![myci][myci]
 
 ### Back End
 
@@ -216,5 +223,6 @@ Isaac Lister
 [risk]: https://i.imgur.com/yNkv5VK.png
 [test]: https://i.imgur.com/yxA33O4.png
 [trello]: https://i.imgur.com/4Lzs2UY.png
+[myci]: https://imgur.com/Sw84peN.png
 
 
