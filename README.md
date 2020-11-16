@@ -20,7 +20,7 @@ Risk Assessment: https://docs.google.com/spreadsheets/d/15WIGvHh8FQEDUEicGsjjrn0
     * [Final Relationship Schema](#final-relationship-schema)
 * [Risk Assessment](#risk-assessment)
 * Design
-    * [CI Pipeline] (#ci-pipeline)
+    * [CI Pipeline](#ci-pipeline)
     * [Back End](#back-end)
     * [Front End](#front-end)
 * [Known Issues](#known-issues)
@@ -99,6 +99,20 @@ The full assessment can be found at: https://docs.google.com/spreadsheets/d/15WI
 Here is the CI Pipeline specific to this project.
 
 ![myci][myci]
+
+Project tracking through Trello (see Resources) allows for a list of tasks as backlog to refer to.
+These tasks are completed and pushed as code to the GitHub repository, managed with Git VCS.
+The Git VCS triggers the Jenkins CI Server (this should be subsequently automated in the Execute shell, I have not done this)
+Unit testing and integration testing can be performed, also by running Pytest in the shell.
+Pytest feeds back coverage reports which can be emailed to developers. One such report is included in the Testing section.
+Builds which pass the tests get added to an artifact repository in Jenkins, which can be staged for live.
+
+Using a VCS controlled CI Pipeline makes changes easily trackable, and the feedback loop between clients and developers more transparent.
+
+
+
+
+
 
 ### Back End
 
