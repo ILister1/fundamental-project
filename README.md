@@ -158,9 +158,17 @@ While Unit Testing, I encountered a syntax error in a test class. There was an a
 
 Through writing unit tests in test_app.py, I was able to obtain an overall coverage of 82%. Unfortunately, an AssertionError when trying to test the /add route is keeping that percentage low, but I can't seem to solve it. In future, I would ensure that all routes are tested to ensure none of my tests fail.
 
+The scope of the unit tests were to ascertain if all CRUD functionality was working.
+Routes for add, update, read and delete were tested.
+Testing the add route failed, due to an AssertionError, so i would want to fix this prior to release.
+
 ### Integration Testing
 
 Integration testing was achieved with a test_int.py file, connecting to a test database, a chromedriver executable, and running integration tests by xpath for adding and updating a gig in the database. Unfortunately I don't know how to obtain a report for this, but the tests passed when running pytest.
+
+Adding a user to the database by xpath was tested in integration.
+To run the integration test, a separate Database URI and Secret Key is required to keep testing separate from production.
+As there is an initialisation file and a test_int.py in the tests folder; the integration test can be run by running the command pytest from the terminal.
 
 
 ### Branching
